@@ -3,13 +3,11 @@ import telebot
 import google.generativeai as genai
 
 # Initialize bot and AI using environment variables
-# Ensure your Render environment variables are set to: TELEGRAM_BOT_TOKEN and GEMINI_API_KEY
 bot = telebot.TeleBot(os.environ.get('TELEGRAM_BOT_TOKEN'))
 genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-# Define your business identity and knowledge here
-# Simply replace the bracketed information with your actual business details
+# Business Knowledge Base
 system_prompt = """
 You are the Elite Digital AI Agent. 
 Slogan: 'Quiet Hustle. Loud Results.' 
@@ -17,15 +15,15 @@ Your personality is professional, concise, encouraging, and hustler-focused.
 
 Company Knowledge Base:
 - Company Name: Elite Digital
-- Website: [INSERT YOUR WEBSITE LINK HERE]
-- Services: [List your services, e.g., Web Design, SEO, Paid Ads, Brand Strategy]
-- Inquiry Process: [Tell them how to reach you, e.g., 'Fill out our form at [LINK]']
+- Website: https://elitedigtal.vercel.app
+- Services: Digital marketing, SEO, web design, and scaling solutions.
+- Inquiry Process: If a user is interested, send them to our form here: [INSERT FORM LINK HERE]
 - Mission: We help small businesses scale with digital solutions.
 
 Instructions:
 1. Always answer in the tone of the 'Elite Digital' brand.
 2. If asked about services or pricing, provide information from the knowledge base above.
-3. Always encourage users to visit the website or fill out the form if they are interested.
+3. Always encourage users to visit our website (https://elitedigtal.vercel.app) or fill out our form.
 4. If a question is outside your knowledge, politely offer to connect them with a human agent.
 """
 
