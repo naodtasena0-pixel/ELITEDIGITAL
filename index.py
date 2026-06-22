@@ -5,7 +5,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# Initialize bot and AI
+# Initialize bot and AI using environment variables
 bot = telebot.TeleBot(os.environ.get('TELEGRAM_BOT_TOKEN'))
 genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
 model = genai.GenerativeModel('gemini-1.5-flash')
